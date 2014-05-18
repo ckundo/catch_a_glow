@@ -1,0 +1,27 @@
+<html>
+<head>
+</head>
+<body>
+
+<button></button>
+<button></button>
+<button></button>
+<button></button>
+<button></button>
+<button></button>
+<button></button>
+<input id='scoreboard' type='number' readonly>
+
+<script src='js/mole.js'></script>
+<script src='js/game.js'></script>
+<script>
+  var buttons = document.getElementsByTagName('button');
+  var scoreboard = document.getElementById('scoreboard');
+  var myGame = game({scoreboard: scoreboard});
+
+  for(var i=0; i < buttons.length; i++) {
+    var myMole = mole({element: buttons[i], game: myGame});
+  }
+</script>
+</body>
+</html>
