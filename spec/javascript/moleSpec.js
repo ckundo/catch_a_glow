@@ -6,7 +6,7 @@ describe('mole', function() {
     myMole = mole(button);
   });
 
-  describe('getting whacked', function() {
+  describe('getting whacked (clicked)', function() {
     it('disables itself', function() {
       myMole.click();
       expect(myMole.disabled).toBeTruthy();
