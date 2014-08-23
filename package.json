@@ -1,5 +1,5 @@
 {
-  "name": "clik_a_button",
+  "name": "whak_a_mole",
   "version": "0.0.0",
   "description": "Click the button!",
   "main": "index.js",
@@ -15,5 +15,20 @@
     "karma": "~0.12.16",
     "karma-jasmine": "~0.1.5",
     "karma-chrome-launcher": "~0.1.3"
-  }
+  },
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-karma": "^0.8.3",
+    "karma": "^0.12.22",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-jasmine": "^0.1.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ckundo/whak_a_mole"
+  },
+  "bugs": {
+    "url": "https://github.com/ckundo/whak_a_mole/issues"
+  },
+  "homepage": "https://github.com/ckundo/whak_a_mole"
 }
