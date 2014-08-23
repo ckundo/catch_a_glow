@@ -1,5 +1,5 @@
 var game = function() {
-  var self, score, moles, scoreboard;
+  var self, score, moles;
   self = {};
   score = 0;
   moles = [];
@@ -17,7 +17,7 @@ var game = function() {
   };
 
   var updateScoreboard = function() {
-    scoreboard = document.querySelector('[name=score]');
+    var scoreboard = document.querySelector('[name=score]');
     scoreboard.value = self.score;
     self.scoreboard = scoreboard;
   };
