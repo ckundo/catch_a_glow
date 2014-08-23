@@ -1,8 +1,15 @@
 describe('game', function() {
-  var myGame;
+  var myGame, button;
 
   beforeEach(function() {
+    button = document.createElement('button');
+    button.setAttribute('data-mole', true);
+    document.body.appendChild(button);
     myGame = game();
+  });
+
+  afterEach(function() {
+    document.body.removeChild(button);
   });
 
   describe('.start', function() {
@@ -10,6 +17,12 @@ describe('game', function() {
       myGame.bumpScore();
       myGame.start();
       expect(myGame.score).toEqual(0);
+    });
+
+    it('sets up moles', function() {
+      myGame.start();
+      expect(myGame.moles).toBeDefined();
+      expect(myGame.moles[0]).toBe(button);
     });
   });
 
