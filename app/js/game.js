@@ -1,30 +1,36 @@
 var game = function() {
-  var self, score, moles;
-
+  var self, score, moles, scoreboard;
   self = {};
   score = 0;
   moles = [];
 
   var start = function() {
     self.score = 0;
-    moles = document.querySelectorAll('[data-mole]');
-
-    Array.prototype.slice.call(moles).map(function(mole) {
-      mole.onclick = function () {
-        bumpScore();
-      };
-    });
-
-    self.moles = moles;
+    self.moles = document.querySelectorAll('[data-mole]');
+    updateScoreboard();
+    assignMoles();
   };
 
   var bumpScore = function() {
     self.score += 100;
+    updateScoreboard();
+  };
+
+  var updateScoreboard = function() {
+    scoreboard = document.querySelector('[name=score]');
+    scoreboard.value = self.score;
+    self.scoreboard = scoreboard;
+  };
+
+  var assignMoles = function() {
+    Array.prototype.slice.call(self.moles).map(function(mole) {
+      mole.onclick = function () {
+        bumpScore();
+      };
+    });
   };
 
   self.bumpScore = bumpScore;
   self.start = start;
-  self.score = score;
-  self.moles = moles;
   return self;
 };

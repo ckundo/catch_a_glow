@@ -4,11 +4,15 @@ describe('mole', function() {
   beforeEach(function() {
     button = document.createElement('button');
     myMole = mole(button);
+
+    scoreboard = document.createElement('input');
+    scoreboard.setAttribute('name', 'score');
+    document.body.appendChild(scoreboard);
   });
 
   describe('getting whacked (clicked)', function() {
     it('disables itself', function() {
-      myMole.click();
+      myMole.onclick();
       expect(myMole.disabled).toBeTruthy();
     });
 
