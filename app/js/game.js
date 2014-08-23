@@ -7,7 +7,15 @@ var game = function() {
 
   var start = function() {
     self.score = 0;
-    self.moles = document.querySelectorAll('[data-mole]');
+    moles = document.querySelectorAll('[data-mole]');
+
+    Array.prototype.slice.call(moles).map(function(mole) {
+      mole.onclick = function () {
+        bumpScore();
+      };
+    });
+
+    self.moles = moles;
   };
 
   var bumpScore = function() {

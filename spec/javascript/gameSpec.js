@@ -12,7 +12,7 @@ describe('game', function() {
     document.body.removeChild(button);
   });
 
-  describe('.start', function() {
+  describe('starting', function() {
     it('resets the score', function() {
       myGame.bumpScore();
       myGame.start();
@@ -22,14 +22,15 @@ describe('game', function() {
     it('sets up moles', function() {
       myGame.start();
       expect(myGame.moles).toBeDefined();
-      expect(myGame.moles[0]).toBe(button);
+      expect(myGame.moles[0]).toEqual(button);
     });
   });
 
-  describe('.bumpScore', function() {
+  describe('whacking a mole', function() {
     it('increments the score', function() {
+      myGame.start();
       expect(myGame.score).toEqual(0);
-      myGame.bumpScore();
+      button.click();
       expect(myGame.score).toEqual(100);
     });
   });
