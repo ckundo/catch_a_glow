@@ -1,19 +1,15 @@
 describe('mole', function() {
-  var myGame = game({});
-  spyOn(myGame, 'bumpScore');
+  var button, myMole;
 
-  var myMole = mole({
-    element: { disabled: false },
-    theGame: myGame
+  beforeEach(function() {
+    button = document.createElement('button');
+    myMole = mole(button);
   });
 
-  it('resets on click', function() {
-    myMole.onclick();
-    expect(myMole.disabled).toBeTruthy();
-  });
-
-  it('increments the score on click', function() {
-    myMole.onclick();
-    expect(game.bumpScore).toHaveBeenCalled();
+  describe('getting whacked', function() {
+    it('disables itself', function() {
+      myMole.click();
+      expect(myMole.disabled).toBeTruthy();
+    });
   });
 });

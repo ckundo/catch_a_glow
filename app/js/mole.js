@@ -1,6 +1,6 @@
-var mole = function(spec) {
-  var that = spec.element;
-  var myGame = spec.theGame;
+var mole = function(element) {
+  var that = element;
+
   var hide = function() {
     that.disabled = true;
   };
@@ -14,7 +14,6 @@ var mole = function(spec) {
   };
 
   that.onclick = function() {
-    myGame.bumpScore();
     reset();
   };
 
