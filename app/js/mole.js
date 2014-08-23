@@ -1,11 +1,11 @@
 var mole = function(element) {
-  var that = element;
+  var self = element;
 
   var hide = function() {
-    that.disabled = true;
+    self.disabled = true;
   };
   var emerge = function() {
-    that.disabled = false;
+    self.disabled = false;
   };
 
   var reset = function() {
@@ -13,9 +13,9 @@ var mole = function(element) {
     setTimeout(emerge, Math.random() * 10000);
   };
 
-  that.onclick = function() {
+  self.onclick = function() {
     reset();
   };
 
-  return that;
+  return self;
 };

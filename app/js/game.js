@@ -1,12 +1,12 @@
 var game = function(spec) {
-  var that = {};
+  var self = {};
   var score = 0;
 
-  that.bumpScore = function() {
-    that.score += 100;
+  self.bumpScore = function() {
+    self.score += 100;
   };
 
-  that.score = score;
+  self.score = score;
 
-  return that;
+  return self;
 };
