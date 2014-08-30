@@ -39,12 +39,13 @@ var WAM = (function(my) {
     };
 
     var end = function() {
-      myMoles.map(function(myMole) {
-        document.body.removeChild(myMole);
-      });
-
-      var message = document.createTextNode('You whacked ' + myScoreboard.score + ' moles!');
-      document.body.appendChild(message);
+      var board = document.querySelector('[data-mole]').parentNode;
+      var message = document.querySelector('[data-message]');
+      var score = document.createElement('span');
+      score.textContent = myScoreboard.score === 0 ? 'O_o' : ':D';
+      board.parentNode.replaceChild(message, board);
+      message.appendChild(score);
+      message.style.display = 'block';
     };
 
     self.start = start;

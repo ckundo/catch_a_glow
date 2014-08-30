@@ -1,0 +1,66 @@
+body {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+input[name='score'] {
+  border: none;
+  display: inline-block;
+  width: 3em;
+}
+
+[data-message] {
+  text-align: center;
+  font-size: 400%;
+}
+
+[data-message] {
+  padding: 30px;
+  display: none;
+}
+
+.scoreboard > label {
+  padding: 25px;
+}
+
+.scoreboard, input[name='score'] {
+  font-size: 140%;
+  background-color: darkblue;
+  color: #ffff00;
+  font-family: monospace;
+}
+
+.board {
+  background-color: darkseagreen;
+}
+
+.board, .scoreboard, [data-message] {
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+[data-mole] {
+  height: 40px;
+  width: 40px;
+  margin: 25px;
+  border-radius: 20px;
+  border: none;
+  -webkit-box-shadow:  0 0 50px green;
+  -moz-box-shadow:  0 0 50px green;
+  box-shadow:  0 0 50px green;
+  background-color: saddlebrown;
+  -webkit-transition: all 300ms;
+  -moz-transition: all 300ms;
+  -ms-transition: all 300ms;
+  -o-transition: all 300ms;
+  transition: all 300ms;
+}
+
+[data-mole][disabled] {
+  background-color: darkslategray;
+}
+
+[data-mole]:not([disabled]):active {
+  outline: none;
+  background-color: red;
+}
