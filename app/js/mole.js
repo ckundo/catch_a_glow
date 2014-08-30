@@ -5,7 +5,9 @@ var WAM = (function(my) {
     var self = element;
     var hidden = true;
     var maxHideDelayMillis = 10000;
-    var maxEmergeDelayMillis = 5000;
+    var minHideDelayMillis = 3000;
+    var maxEmergeDelayMillis = 7000;
+    var minEmergeDelayMillis = 500;
 
     var toggle = function() {
       self.disabled = !self.disabled;
@@ -13,8 +15,9 @@ var WAM = (function(my) {
     };
 
     var setDelayedTimeout = function(direction) {
-      var maxDelay = hidden ? maxHideDelayMillis : maxEmergeDelayMillis;
-      setTimeout(toggle, Math.random() * maxDelay);
+      var maxDelay = hidden ? maxEmergeDelayMillis : maxHideDelayMillis;
+      var minDelay = hidden ? minEmergeDelayMillis : minHideDelayMillis;
+      setTimeout(toggle, Math.random() * maxDelay + minDelay);
     };
 
     var reset = function() {
