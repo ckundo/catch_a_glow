@@ -3,19 +3,16 @@ var WAM = (function(my) {
 
   var game = function() {
     var self = {};
-
-    var moles, myScoreboard;
+    var myMoles, myScoreboard;
     var gameTimeLimit = 10000;
 
-    moles = function() {
+    var moles = function() {
       var moleNodes = document.querySelectorAll('[data-mole]');
-      var moleArr = [];
+      myMoles = [];
 
       Array.prototype.slice.call(moleNodes).map(function (node) {
-        moleArr.push(WAM.mole(node));
+        myMoles.push(WAM.mole(node));
       });
-
-      return moleArr;
     };
 
     var whacked = function() {
@@ -24,7 +21,7 @@ var WAM = (function(my) {
     };
 
     var assignMoles = function() {
-      var myMoles = moles();
+      moles();
       myMoles.map(function(myMole) {
         myMole.onclick = whacked;
         myMole.reset();
@@ -33,13 +30,21 @@ var WAM = (function(my) {
 
     var start = function() {
       setTimeout(function() {
-        alert('You whacked ' + myScoreboard.score + ' moles. Restarting.');
-        start();
+        end();
       }, gameTimeLimit);
 
       myScoreboard = my.scoreboard;
       myScoreboard.reset();
       assignMoles();
+    };
+
+    var end = function() {
+      myMoles.map(function(myMole) {
+        document.body.removeChild(myMole);
+      });
+
+      var message = document.createTextNode('You whacked ' + myScoreboard.score + ' moles!');
+      document.body.appendChild(message);
     };
 
     self.start = start;

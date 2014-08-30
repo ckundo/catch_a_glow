@@ -26,6 +26,7 @@ describe('game', function() {
   describe('whacking a mole', function() {
     it('increments the score', function() {
       myGame.start();
+      button.disabled = false;
       button.click();
       expect(WAM.scoreboard.score).toEqual(1);
     });
