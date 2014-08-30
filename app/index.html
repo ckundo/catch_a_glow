@@ -3,25 +3,20 @@
 </head>
 <body>
 
-<button></button>
-<button></button>
-<button></button>
-<button></button>
-<button></button>
-<button></button>
-<button></button>
-<input id='scoreboard' type='number' readonly>
+<button data-mole disabled></button>
+<button data-mole disabled></button>
+<button data-mole disabled></button>
+<button data-mole disabled></button>
+<button data-mole disabled></button>
+<button data-mole disabled></button>
+<button data-mole disabled></button>
+<input name='score' type='number' readonly>
 
 <script src='js/mole.js'></script>
+<script src='js/scoreboard.js'></script>
 <script src='js/game.js'></script>
 <script>
-  var buttons = document.getElementsByTagName('button');
-  var scoreboard = document.getElementById('scoreboard');
-  var myGame = game({scoreboard: scoreboard});
-
-  for(var i=0; i < buttons.length; i++) {
-    var myMole = mole({element: buttons[i], game: myGame});
-  }
+  game().start();
 </script>
 </body>
 </html>

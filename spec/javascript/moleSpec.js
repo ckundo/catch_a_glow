@@ -1,35 +1,27 @@
 describe('mole', function() {
-  var button, myMole;
+  var button, scoreboard;
 
   beforeEach(function() {
     button = document.createElement('button');
-    myMole = mole(button);
+    button.setAttribute('data-mole', true);
+    document.body.appendChild(button);
 
     scoreboard = document.createElement('input');
     scoreboard.setAttribute('name', 'score');
     document.body.appendChild(scoreboard);
+
+    game().start();
+  });
+
+  afterEach(function() {
+    document.body.removeChild(button);
+    document.body.removeChild(scoreboard);
   });
 
   describe('getting whacked (clicked)', function() {
-    it('disables itself', function() {
-      myMole.onclick();
-      expect(myMole.disabled).toBeTruthy();
+    it('splats', function() {
+      button.click();
+      expect(button.disabled).toBeTruthy();
     });
-
-    describe('after a delay', function() {
-      beforeEach(function() {
-        jasmine.clock().install();
-      });
-
-      afterEach(function() {
-        jasmine.clock().uninstall();
-      });
-
-      it('reenables itself', function() {
-        myMole.click();
-        jasmine.clock().tick(10001);
-        expect(myMole.disabled).toBeFalsy();
-      });
-    })
   });
 });

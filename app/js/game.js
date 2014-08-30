@@ -1,36 +1,44 @@
 var game = function() {
-  var self, score, moles;
-  self = {};
-  score = 0;
-  moles = [];
+  var self = {};
 
-  var start = function() {
-    self.score = 0;
-    self.moles = document.querySelectorAll('[data-mole]');
-    updateScoreboard();
-    assignMoles();
-  };
+  var moles, myScoreboard;
+  var gameTimeLimit = 10000;
 
-  var bumpScore = function() {
-    self.score += 100;
-    updateScoreboard();
-  };
+  moles = function() {
+    var moleNodes = document.querySelectorAll('[data-mole]');
+    var moleArr = [];
 
-  var updateScoreboard = function() {
-    var scoreboard = document.querySelector('[name=score]');
-    scoreboard.value = self.score;
-    self.scoreboard = scoreboard;
+    Array.prototype.slice.call(moleNodes).map(function (node) {
+      moleArr.push(mole(node));
+    });
+
+    return moleArr;
+  }();
+
+  var whacked = function() {
+    myScoreboard.bump();
+    this.toggle();
   };
 
   var assignMoles = function() {
-    Array.prototype.slice.call(self.moles).map(function(mole) {
-      mole.onclick = function () {
-        bumpScore();
-      };
+    moles.map(function(myMole) {
+      myMole.onclick = whacked;
+      myMole.reset();
     });
   };
 
-  self.bumpScore = bumpScore;
+  var start = function() {
+    setTimeout(function() {
+      alert('You whacked ' + myScoreboard.score + ' moles. Restarting.');
+      start();
+    }, gameTimeLimit);
+
+    myScoreboard.reset();
+    assignMoles();
+  };
+
+  myScoreboard = scoreboard();
   self.start = start;
+
   return self;
 };

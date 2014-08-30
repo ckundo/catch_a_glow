@@ -1,21 +1,25 @@
 var mole = function(element) {
   var self = element;
+  var hidden = true;
+  var maxHideDelayMillis = 10000;
+  var maxEmergeDelayMillis = 5000;
 
-  var hide = function() {
-    self.disabled = true;
+  var toggle = function() {
+    self.disabled = !self.disabled;
+    setDelayedTimeout();
   };
-  var emerge = function() {
-    self.disabled = false;
+
+  var setDelayedTimeout = function(direction) {
+    var maxDelay = hidden ? maxHideDelayMillis : maxEmergeDelayMillis;
+    setTimeout(toggle, Math.random() * maxDelay);
   };
 
   var reset = function() {
-    hide();
-    setTimeout(emerge, Math.random() * 10000);
+    self.disabled = false;
+    toggle();
   };
 
-  self.onclick = function() {
-    reset();
-  };
-
+  self.toggle = toggle;
+  self.reset = reset;
   return self;
 };
