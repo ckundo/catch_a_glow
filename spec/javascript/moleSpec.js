@@ -10,7 +10,7 @@ describe('mole', function() {
     scoreboard.setAttribute('name', 'score');
     document.body.appendChild(scoreboard);
 
-    game().start();
+    WAM.game.start();
   });
 
   afterEach(function() {
@@ -20,6 +20,7 @@ describe('mole', function() {
 
   describe('getting whacked (clicked)', function() {
     it('splats', function() {
+      button.disabled = false;
       button.click();
       expect(button.disabled).toBeTruthy();
     });

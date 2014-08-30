@@ -10,7 +10,7 @@ describe('game', function() {
     scoreboard.setAttribute('name', 'score');
     document.body.appendChild(scoreboard);
 
-    myGame = game();
+    myGame = WAM.game;
   });
 
   afterEach(function() {
@@ -26,9 +26,8 @@ describe('game', function() {
   describe('whacking a mole', function() {
     it('increments the score', function() {
       myGame.start();
-      button.disabled = false;
       button.click();
-      expect(scoreboard.value).toEqual('1');
+      expect(WAM.scoreboard.score).toEqual(1);
     });
   });
 });
