@@ -3,6 +3,7 @@ var WAM = (function(my) {
 
   var mole = function(element) {
     var self = element;
+    var timeout = -1;
     var hidden = true;
     var maxHideDelayMillis = 10000;
     var minHideDelayMillis = 3000;
@@ -17,7 +18,8 @@ var WAM = (function(my) {
     var setDelayedTimeout = function(direction) {
       var maxDelay = hidden ? maxEmergeDelayMillis : maxHideDelayMillis;
       var minDelay = hidden ? minEmergeDelayMillis : minHideDelayMillis;
-      setTimeout(toggle, Math.random() * maxDelay + minDelay);
+      clearTimeout(timeout);
+      timeout = setTimeout(toggle, Math.random() * maxDelay + minDelay);
     };
 
     var reset = function() {
