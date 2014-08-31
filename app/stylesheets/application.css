@@ -25,13 +25,31 @@ input[name='score'] {
 }
 
 [data-message] {
+  display: none;
+}
+
+[data-jar] {
+  position: relative;
+  width: 20vw;
+  height: 40vw;
+  background: url(../images/jar.png) no-repeat center center;
+  background-size: 100%;
   padding: 30px;
   display: none;
-  text-align: center;
-  font-size: 400%;
+  color: #c4e84d;
+  font-size: 2vw;
+}
+
+[data-jar] span {
+  max-width: 40vw;
+  position: absolute;
+  bottom: 5vw;
+  letter-spacing: 10px;
+  line-height: 200%;
 }
 
 .scoreboard {
+  text-align: center  ;
   padding: 20px;
   background-color: #515fbb;
   width: 100%;
@@ -43,7 +61,7 @@ input[name='score'] {
   font-family: monospace;
 }
 
-.board, .scoreboard, [data-message] {
+.board, .scoreboard, [data-jar] {
   margin: 0 auto;
 }
 

@@ -40,12 +40,19 @@ var WAM = (function(my) {
 
     var end = function() {
       var board = document.querySelector('[data-mole]').parentNode;
+      var jar = document.querySelector('[data-jar]');
       var message = document.querySelector('[data-message]');
       var score = document.createElement('span');
-      score.textContent = myScoreboard.score === 0 ? 'O_o' : ':D';
-      board.parentNode.replaceChild(message, board);
-      message.appendChild(score);
-      message.style.display = 'block';
+
+      var bullet = String.fromCharCode('11044') + " ";
+      for(var i=0; i < myScoreboard.score; i++) {
+        score.textContent += bullet;
+      }
+
+      board.parentNode.replaceChild(jar, board);
+      jar.appendChild(score);
+      jar.style.display = 'block';
+      message.style.display = 'inline-block';
     };
 
     self.start = start;
