@@ -4,7 +4,7 @@ var WAM = (function(my) {
   var game = function() {
     var self = {};
     var myMoles, myScoreboard;
-    var gameTimeLimit = 10000;
+    var gameTimeLimit = 15000;
 
     var moles = function() {
       var moleNodes = document.querySelectorAll('[data-mole]');
