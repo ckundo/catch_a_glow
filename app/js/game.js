@@ -33,7 +33,7 @@ var WAM = (function(my) {
         end();
       }, gameTimeLimit);
 
-      document.querySelector('[data-message-start]').style.display = 'inline-block';
+      document.querySelector('[data-message-start]').style.display = 'inline';
       myScoreboard = my.scoreboard;
       myScoreboard.reset();
       assignMoles();
@@ -54,7 +54,7 @@ var WAM = (function(my) {
       }
 
       document.querySelector('[data-message-start]').style.display = 'none';
-      document.querySelector('[data-message-end]').style.display = 'inline-block';
+      document.querySelector('[data-message-end]').style.display = 'inline';
       board.parentNode.replaceChild(jar, board);
       jar.style.display = 'block';
       message.style.display = 'inline-block';
