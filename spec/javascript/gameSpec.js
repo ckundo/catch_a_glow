@@ -43,7 +43,7 @@ describe('game', function() {
 
   it('shows a message', function() {
     myGame.start();
-    expect(document.querySelector("[data-message-start]").style.display).toEqual('inline-block');
+    expect(document.querySelector("[data-message-start]").style.display).toEqual('inline');
   });
 
   describe('whacking a mole', function() {

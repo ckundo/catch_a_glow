@@ -42,7 +42,6 @@ var WAM = (function(my) {
     var end = function() {
       var board = document.querySelector('[data-mole]').parentNode;
       var jar = document.querySelector('[data-jar]');
-      var message = document.querySelector('[data-message]');
       var bullet = document.querySelector('[data-mark]');
       var tally = document.querySelector('.tally');
       var marks = [];
@@ -57,8 +56,6 @@ var WAM = (function(my) {
       document.querySelector('[data-message-end]').style.display = 'inline';
       board.parentNode.replaceChild(jar, board);
       jar.style.display = 'block';
-      message.style.display = 'inline-block';
-      message.style.display = 'inline-block';
       tally.style.display = 'inline-block';
     };
 
