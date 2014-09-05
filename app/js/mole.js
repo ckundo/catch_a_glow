@@ -3,7 +3,7 @@ var WAM = (function(my) {
 
   var mole = function(element) {
     var self = element;
-    var timeout = -1;
+    var timeout = 0;
     var hidden = true;
     var maxHideDelayMillis = 10000;
     var minHideDelayMillis = 3000;
