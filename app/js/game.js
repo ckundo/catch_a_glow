@@ -28,11 +28,17 @@ var WAM = (function(my) {
       });
     };
 
+    var toggleMessage = function(message, state) {
+      var node = document.querySelector('[data-message="' + message + '"]');
+      node.style.display = state == "hidden" ? "none" : "inline-block";
+    };
+
     var start = function() {
       setTimeout(function() {
         end();
       }, gameTimeLimit);
 
+      toggleMessage('start');
       myScoreboard = my.scoreboard;
       myScoreboard.reset();
       assignMoles();
@@ -49,13 +55,18 @@ var WAM = (function(my) {
         score.textContent += bullet;
       }
 
+      toggleMessage('start', 'hidden');
+      toggleMessage('end');
       board.parentNode.replaceChild(jar, board);
       jar.appendChild(score);
       jar.style.display = 'block';
       message.style.display = 'inline-block';
+      toggleMessage('start', 'hidden');
+      toggleMessage('end');
     };
 
     self.start = start;
+    self.end = end;
     return self;
   }();
 

@@ -10,12 +10,15 @@ describe('mole', function() {
     scoreboard.setAttribute('name', 'score');
     document.body.appendChild(scoreboard);
 
-    WAM.game.start();
-  });
+    introMessage = document.createElement('h2');
+    introMessage.setAttribute('data-message', 'start');
+    document.children[0].appendChild(introMessage);
 
-  afterEach(function() {
-    document.body.removeChild(button);
-    document.body.removeChild(scoreboard);
+    endMessage = document.createElement('h2');
+    endMessage.setAttribute('data-message', 'end');
+    document.children[0].appendChild(endMessage);
+
+    WAM.game.start();
   });
 
   describe('getting whacked (clicked)', function() {
