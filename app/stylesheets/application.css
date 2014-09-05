@@ -24,8 +24,12 @@ input[name='score'] {
   background-color: transparent;
 }
 
-[data-message] {
+[data-message], [data-template], [data-message] {
   display: none;
+}
+
+[data-mark]::before {
+  content: "o";
 }
 
 [data-jar] {
@@ -38,14 +42,6 @@ input[name='score'] {
   display: none;
   color: #c4e84d;
   font-size: 2vw;
-}
-
-[data-jar] span {
-  max-width: 40vw;
-  position: absolute;
-  bottom: 5vw;
-  letter-spacing: 10px;
-  line-height: 200%;
 }
 
 .scoreboard {

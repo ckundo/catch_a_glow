@@ -18,8 +18,11 @@ describe('game', function() {
     scoreboard.setAttribute('name', 'score');
     document.body.appendChild(scoreboard);
 
-    myGame = WAM.game;
-  });
+    tally = document.createElement('div');
+    tally.setAttribute('class', 'tally');
+
+    mark = document.createElement('span');
+    mark.setAttribute('data-mark', true);
 
     jar = document.createElement('div');
     jar.setAttribute('data-jar', true);
@@ -49,6 +52,22 @@ describe('game', function() {
       button.disabled = false;
       button.click();
       expect(WAM.scoreboard.score).toEqual(1);
+    });
+  });
+
+  describe('ending the game', function() {
+    it('displays the jar with a tally', function() {
+      myGame.start();
+
+      button.disabled = false;
+      button.click();
+      button.disabled = false;
+      button.click();
+      myGame.end();
+
+      expect(tally.style.display).not.toEqual('inline-block');
+      expect(document.querySelector('[data-jar]').style.display).toEqual('block');
+      expect(document.querySelectorAll('.tally [data-mark]').length).toEqual(2);
     });
   });
 });

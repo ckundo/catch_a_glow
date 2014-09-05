@@ -4,11 +4,11 @@ describe('mole', function() {
   beforeEach(function() {
     button = document.createElement('button');
     button.setAttribute('data-mole', true);
-    document.body.appendChild(button);
+    document.children[0].appendChild(button);
 
     scoreboard = document.createElement('input');
     scoreboard.setAttribute('name', 'score');
-    document.body.appendChild(scoreboard);
+    document.children[0].appendChild(scoreboard);
 
     introMessage = document.createElement('h2');
     introMessage.setAttribute('data-message', 'start');
