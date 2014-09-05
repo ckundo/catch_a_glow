@@ -28,17 +28,12 @@ var WAM = (function(my) {
       });
     };
 
-    var toggleMessage = function(message, state) {
-      var node = document.querySelector('[data-message="' + message + '"]');
-      node.style.display = state == "hidden" ? "none" : "inline-block";
-    };
-
     var start = function() {
       setTimeout(function() {
         end();
       }, gameTimeLimit);
 
-      toggleMessage('start');
+      document.querySelector('[data-message="start"]').style.display = 'inline-block';
       myScoreboard = my.scoreboard;
       myScoreboard.reset();
       assignMoles();
@@ -58,8 +53,8 @@ var WAM = (function(my) {
         marks.push(copy);
       }
 
-      toggleMessage('start', 'hidden');
-      toggleMessage('end');
+      document.querySelector('[data-message="start"]').style.display = 'none';
+      document.querySelector('[data-message="end"]').style.display = 'inline-block';
       board.parentNode.replaceChild(jar, board);
       jar.style.display = 'block';
       message.style.display = 'inline-block';
