@@ -24,12 +24,24 @@ input[name='score'] {
   background-color: transparent;
 }
 
-[data-message], [data-template], [data-message] {
+[data-message], [data-template] {
   display: none;
 }
 
-[data-mark]::before {
-  content: "o";
+.tally {
+  position: absolute;
+  bottom: 23vh;
+  width: 17vw;
+  padding: 30px;
+}
+
+[data-mark] {
+  display: inline-block;
+  width: 1.5vw;
+  height: 1.5vw;
+  border-radius: 1.5vw;
+  margin: 1vw;
+  background-color: #c4e84d;
 }
 
 [data-jar] {
@@ -41,7 +53,7 @@ input[name='score'] {
   padding: 30px;
   display: none;
   color: #c4e84d;
-  font-size: 2vw;
+  font-size: 3vw;
 }
 
 .scoreboard {
