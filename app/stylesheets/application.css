@@ -29,9 +29,9 @@ input[name='score'] {
 
 .tally {
   position: absolute;
-  bottom: 23vh;
-  width: 17vw;
-  padding: 30px;
+  bottom: 10vh;
+  width: 18vw;
+  padding: 2vw;
 }
 
 [data-mark] {
