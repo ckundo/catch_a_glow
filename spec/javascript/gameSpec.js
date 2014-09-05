@@ -7,11 +7,11 @@ describe('game', function() {
     document.body.appendChild(button);
 
     introMessage = document.createElement('h2');
-    introMessage.setAttribute('data-message', 'start');
+    introMessage.setAttribute('data-message-start', true);
     document.body.appendChild(introMessage);
 
     endMessage = document.createElement('h2');
-    endMessage.setAttribute('data-message', 'end');
+    endMessage.setAttribute('data-message-end', true);
     document.body.appendChild(endMessage);
 
     scoreboard = document.createElement('input');
@@ -43,7 +43,7 @@ describe('game', function() {
 
   it('shows a message', function() {
     myGame.start();
-    expect(document.querySelector("[data-message='start']").style.display).toEqual('inline-block');
+    expect(document.querySelector("[data-message-start]").style.display).toEqual('inline-block');
   });
 
   describe('whacking a mole', function() {

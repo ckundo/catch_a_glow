@@ -24,7 +24,7 @@ input[name='score'] {
   background-color: transparent;
 }
 
-[data-message], [data-template] {
+[data-message-start], [data-message-end], [data-template] {
   display: none;
 }
 

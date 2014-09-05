@@ -11,11 +11,11 @@ describe('mole', function() {
     document.children[0].appendChild(scoreboard);
 
     introMessage = document.createElement('h2');
-    introMessage.setAttribute('data-message', 'start');
+    introMessage.setAttribute('data-message-start', true);
     document.children[0].appendChild(introMessage);
 
     endMessage = document.createElement('h2');
-    endMessage.setAttribute('data-message', 'end');
+    endMessage.setAttribute('data-message-end', true);
     document.children[0].appendChild(endMessage);
 
     WAM.game.start();
