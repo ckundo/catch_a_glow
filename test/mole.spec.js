@@ -4,19 +4,19 @@ describe('mole', function() {
   beforeEach(function() {
     button = document.createElement('button');
     button.setAttribute('data-mole', true);
-    document.children[0].appendChild(button);
+    document.body.appendChild(button);
 
-    scoreboard = document.createElement('input');
+    var scoreboard = document.createElement('input');
     scoreboard.setAttribute('name', 'score');
-    document.children[0].appendChild(scoreboard);
+    document.body.appendChild(scoreboard);
 
-    introMessage = document.createElement('h2');
+    var introMessage = document.createElement('h2');
     introMessage.setAttribute('data-message-start', true);
-    document.children[0].appendChild(introMessage);
+    document.body.appendChild(introMessage);
 
-    endMessage = document.createElement('h2');
+    var endMessage = document.createElement('h2');
     endMessage.setAttribute('data-message-end', true);
-    document.children[0].appendChild(endMessage);
+    document.body.appendChild(endMessage);
 
     WAM.game.start();
   });
