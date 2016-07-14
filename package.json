@@ -4,7 +4,7 @@
   "description": "Click the button!",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/karma start --browsers Firefox --single-run"
+    "test": "karma start"
   },
   "keywords": [
     "games"
