@@ -1,27 +1,17 @@
+var webpackConfig = require(__dirname + "/webpack.config");
+
 module.exports = function(config) {
   config.set({
     frameworks: ["jasmine"],
     files: [
-      "src/**/*.js",
       "tests.webpack.js"
     ],
     preprocessors: {
       "tests.webpack.js": ["webpack", "sourcemap"]
     },
     webpack: {
-      devtool: "inline-source-map",
-      module: {
-        loaders: [
-        {
-          test: /\.js$/,
-          exclude: /\/node_modules\//,
-          loader: "babel-loader"
-        }
-        ]
-      },
-      externals: {
-        "react/addons": true
-      }
+      resolve: webpackConfig.resolve,
+      module: webpackConfig.module
     },
     webpackServer: {
       noInfo: true

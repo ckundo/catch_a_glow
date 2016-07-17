@@ -1,6 +1,6 @@
-import React from "react/addons";
-import Jar from "components/jar";
-var TestUtils = React.addons.TestUtils;
+import React from "react";
+import TestUtils from "react-addons-test-utils";
+import Jar from "../components/jar"
 
 describe("Jar", () => {
   it("renders successfully", () => {
@@ -8,10 +8,10 @@ describe("Jar", () => {
         <Jar />
         );
 
-    var renderedRow = TestUtils.scryRenderedComponentsWithType(
+    var renderedJar = TestUtils.scryRenderedComponentsWithType(
         jar, Jar
         );
 
-    expect(jar.length).toBe(1);
+    expect(renderedJar.length).toBe(1);
   });
 });
